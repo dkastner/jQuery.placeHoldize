@@ -30,10 +30,13 @@
             // Feature test for placeholder support as found in Modernizr
             // as well as in http://miketaylr.com/code/input-type-attr.html
             // via Mike Taylor's work
-            var supportsPlaceholder = (function(elem) {
-              return !!(elem.placeholder === '') && !!(elem.placeholder !== undefined);
-            })(document.createElement('input'));
-
+            var supportsPlaceholder = (
+                function( elem )
+                {
+                    return !!( elem.placeholder === '' ) && !!( elem.placeholder !== undefined );
+                }
+            )( document.createElement( 'input' ) );
+            
             function _placeHoldize( force )
             {
                 // Store a reference to the current jQuery element.
@@ -48,15 +51,29 @@
                 // Store a reference to the initial "placeholder"'s value.
                 var placeHolder = $this.attr( 'placeholder' );
                 
-                // Copy the "placeholder" attribute's value to the "value" attribute.
-                $this.val( placeHolder );
+                // Only replace the "value" attribute's value if it's empty.
+                // Thanks to kiddailey for the patch.
+                if( $this.val().length <= 0 || $this.val() == placeHolder )
+                {
+                    // To prevent flickering as classes are manipulated.
+                    // Thanks to kiddailey for the patch.
+                    $this.val( '' );
+                    
+                    // Remove the "placeholder" as it is no longer used
+                    // and add a "placeholdized" class to be able to reference
+                    // these elements later.
+                    $this.removeAttr( 'placeholder' ).addClass( 'placeholder-visible' );
+                         
+                    // Copy the "placeholder" attribute's value to the "value" attribute.
+                    $this.val( placeHolder );
+                }
+                else
+                {
+                    $this.removeClass( 'placeholder-visible' )
+                         .addClass( 'placeholder-hidden' );
+                }
                 
-                // Remove the "placeholder" as it is no longer used
-                // and add a "placeholdized" class to be able to reference
-                // these elements later.
-                $this.removeAttr( 'placeholder' )
-                     .addClass( 'placeholdized' )
-                     .addClass( 'placeholder-visible' );
+                $this.addClass( 'placeholdized' )
                 
                 // On focus
                 $this.focus( function()
