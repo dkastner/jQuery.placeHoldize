@@ -73,7 +73,7 @@
                          .addClass( 'placeholder-hidden' );
                 }
                 
-                $this.addClass( 'placeholdized' )
+                $this.addClass( 'placeholdized' );
                 
                 // On focus
                 $this.focus( function()
