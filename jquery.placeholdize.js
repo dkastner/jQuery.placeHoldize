@@ -112,6 +112,12 @@
                         $this.removeClass( 'placeholder-hidden' )
                              .addClass( 'placeholder-visible' );
                     }
+                    else
+                    {
+                        // Swap some classes to be able to style the element.
+                        $this.removeClass( 'placeholder-visible' )
+                             .addClass( 'placeholder-hidden' );
+                    }
                 } );
             }
             
