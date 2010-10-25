@@ -1,5 +1,0 @@
-
-TODO
-====
-
- * Make the plugins customizable (class names, enable form submit, etc. )
