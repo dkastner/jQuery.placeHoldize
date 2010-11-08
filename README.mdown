@@ -74,7 +74,15 @@ If you want to "force" the plug-in to fire even in browsers that have native sup
     
     } )( jQuery );
 
-###5. That's it!###
+###5. Styles###
+
+The plugin will also apply three different classes to the elements so you can style them in their different states:
+
+    placeholdized       : Applied to any element that is targeted by the plugin.
+    placeholder-visible : Applied when the placeholder is visible, which means the input has no focus nor text typed in.
+    placeholder-hidden  : Applied when the placeholder is hidden, ie. after a focus on the input, or when someone has typed some text in.
+
+###6. That's it!###
 
 License
 -------
