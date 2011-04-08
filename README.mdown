@@ -4,9 +4,9 @@ jQuery.placeHoldize
 Introduction
 ------------
 
-jQuery.placeHoldize is a jQuery plug-in which simulate
-the HTML5 "placeholder" attribute for every browser which does not support it.
-It also simulate it for &lt;textarea&gt;s as the WebKit only support it on &lt;input&gt;s.
+jQuery.placeHoldize is a jQuery plug-in which simulates
+the HTML5 "placeholder" attribute for browsers which do not support it.
+It also simulate it for `<textarea>`s as WebKit only support it on `<input>`s.
 Additionnaly, the plug-in will take care of emptying the "placeholdized" elements
 before the form they're in (if any) is actually submitted. This to fully mimics
 the native behaviour of the attribute.
@@ -36,8 +36,8 @@ Usage
 
 ###1. Include the necessary JavaScript files###
 
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script type="text/javascript" src="/path/to/placeHoldize/jquery.placeholdize-0.2.0.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="/path/to/placeHoldize/jquery.placeholdize-0.2.4.min.js"></script>
 
 ###2. Add the "placeholder" attribute to your form elements###
 
@@ -60,7 +60,7 @@ Usage
 
 ###4. Options###
 
-If you want to "force" the plug-in to fire even in browsers that have native support for the "placeholder" attribute, just supply "true" to the plug-in method.
+If you want to "force" the plug-in to fire even in browsers that have native support for the "placeholder" attribute, just supply "true" as the first argument of the method.
 
     ( function( $ )
     {
@@ -83,6 +83,11 @@ The plugin will also apply three different classes to the elements so you can st
     placeholder-hidden  : Applied when the placeholder is hidden, ie. after a focus on the input, or when someone has typed some text in.
 
 ###6. That's it!###
+
+TODO
+----
+
+* Add a feature test for textarea's placeholder support.
 
 License
 -------
