@@ -130,8 +130,8 @@
                     var $this = $( this );
                     
                     // This check avoid processing more than once the same form.
-                    if( $this.data( 'placeHoldize.submitHandlerCalled' ) ) {
-                        
+                    if( $this.data( 'placeHoldize.submitHandlerCalled' ) )
+                    {
                         return;
                     }
                     
