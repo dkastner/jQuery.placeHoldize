@@ -23,7 +23,7 @@
      * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
      */
     
-    ( function( $ )
+    ( function( $, undefined )
     {
         $.fn.placeHoldize = ( function()
         {
@@ -48,7 +48,7 @@
                     return;
                 }
                     
-                // Store a reference to the initial "placeholder"'s value.
+                // Store the "placeholder"'s value.
                 var placeHolder = $this.attr( 'placeholder' );
                 
                 // Only replace the "value" attribute's value if it's empty.
