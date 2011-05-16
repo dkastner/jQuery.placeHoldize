@@ -23,26 +23,30 @@
      * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
      */
     
-    ( function( $, undefined )
+    ( function( $, doc, undefined )
     {
+        function supportsPlaceholder( element )
+        {
+            return element.placeholder === '' && element.placeholder !== undefined;
+        }
+        
+        // Feature test for placeholder support as found in Modernizr
+        // as well as in http://miketaylr.com/code/input-type-attr.html
+        // via Mike Taylor's work
+        var placeHolderSupport = {
+            input    : supportsPlaceholder( doc.createElement( 'input' ) ),
+            textarea : supportsPlaceholder( doc.createElement( 'textarea' ) )
+        };
+        
         $.fn.placeHoldize = ( function()
         {
-            // Feature test for placeholder support as found in Modernizr
-            // as well as in http://miketaylr.com/code/input-type-attr.html
-            // via Mike Taylor's work
-            var supportsPlaceholder = (
-                function( elem )
-                {
-                    return !!( elem.placeholder === '' ) && !!( elem.placeholder !== undefined );
-                }
-            )( document.createElement( 'input' ) );
-            
             function _placeHoldize( force )
             {
                 // Store a reference to the current jQuery element.
-                var $this = $( this );
+                var $this = $( this ),
+                    type  = this.nodeName.toLowerCase();
                 
-                if( !force && ( supportsPlaceholder || !$this.attr( 'placeholder' ) ) && !$this.is( 'textarea' ) )
+                if( !force && ( placeHolderSupport[ type ] || !$this.attr( 'placeholder' ) ) )
                 {
                     // There is no need for this plugin.
                     return;
@@ -78,10 +82,6 @@
                 // On focus
                 $this.focus( function()
                 {
-                    // Store a local reference to the current jQuery element to
-                    // ensure that this reference will be stored only once.
-                    var $this = $( this );
-                    
                     // If the element's value is equal to the previously setted
                     // placeholder's value:
                     if( $this.val() === placeHolder )
@@ -98,10 +98,6 @@
                 // On focus
                 $this.blur( function()
                 {
-                    // Store a local reference to the current jQuery element to
-                    // ensure that this reference will be stored only once.
-                    var $this = $( this );
-                    
                     // If the element's value is empty:
                     if( $this.val() === '' )
                     {
@@ -160,6 +156,6 @@
         
         } )();
         
-    } )( jQuery );
+    } )( jQuery, document );
     
 // ]]>
