@@ -6,7 +6,7 @@
   "main": "./jquery.placeholdize.js",
   "engine": "*",
   "devDependencies": {
-    "browserify": "*",
+    "browserify": "*"
   },
   "browserify": {
     "main": "./browserify.js"
