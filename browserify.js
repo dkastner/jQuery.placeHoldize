@@ -31,8 +31,8 @@ module.exports = function($) {
   // as well as in http://miketaylr.com/code/input-type-attr.html
   // via Mike Taylor's work
   var placeHolderSupport = {
-    input    : supportsPlaceholder( doc.createElement( 'input' ) ),
-    textarea : supportsPlaceholder( doc.createElement( 'textarea' ) )
+    input    : supportsPlaceholder( document.createElement( 'input' ) ),
+    textarea : supportsPlaceholder( document.createElement( 'textarea' ) )
   };
   
   $.fn.placeHoldize = ( function()
