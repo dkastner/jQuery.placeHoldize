@@ -1,0 +1,20 @@
+{
+  "name": "jquery-placeholdize",
+  "version": "0.3.0",
+  "author": "Romain Ruetschi <romain.ruetschi@gmail.com>",
+  "description": "simulates the HTML5 'placeholder' attribute for legacy browsers",
+  "main": "./jquery.placeholdize.js",
+  "engine": "*",
+  "devDependencies": {
+    "browserify": "*",
+  },
+  "browserify": {
+    "main": "./browserify.js"
+  },
+  "keywords": ["jquery","html5","plugin","browser"],
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/romac/jQuery.placeHoldize.git"
+  },
+  "license": "MIT"
+}
